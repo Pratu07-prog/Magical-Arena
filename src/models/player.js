@@ -7,11 +7,6 @@ class Player {
       this.attack = attack;
     }
   
-    isAlive() 
-    {
-      return this.health > 0;
-    }
-  
     takeDamage(damage) 
     {
       this.health -= damage;
