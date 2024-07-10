@@ -1,15 +1,14 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const Player = require('./models/player');
-const startGame = require('./game');
+const gameRoutes = require('./src/routes/game');
 
 const app = express();
 const PORT = 3000;
 
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, '../public')));
-
+app.use(express.static(path.join(__dirname, './public')));
+app.use('/api', gameRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
